@@ -7,7 +7,7 @@ body {
 }
 
 /* Dark Mode */
-.dark-mode {
+body {
     background: linear-gradient(to right, #141E30, #243B55);
     color: white;
 }
@@ -28,6 +28,7 @@ body {
     position: relative;
 }
 
+/* Menu Icon */
 .menu-icon {
     cursor: pointer;
     font-size: 24px;
@@ -123,4 +124,22 @@ h2 {
 .contact-btn:hover {
     background: #009acd;
     transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-links a {
+        font-size: 20px;
+        padding: 15px;
     }
+    
+    .profile-pic img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .contact-btn {
+        padding: 10px 25px;
+        font-size: 16px;
+    }
+}
