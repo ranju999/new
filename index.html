@@ -6,10 +6,10 @@
     <title>Aman Vishwakarma - Profile</title>
     <link rel="stylesheet" href="https://ranju999.github.io/new/styles.css">
 </head>
-<body class="dark-mode">
+<body>
 
     <!-- Navigation Bar -->
-    <div class="nav">
+    <nav class="nav">
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <div class="menu-links" id="menu">
             <a href="https://github.com/yourgithub" target="_blank">GitHub</a>
@@ -17,13 +17,13 @@
             <a href="https://linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
         </div>
         <button class="mode-toggle" onclick="toggleMode()">🌙</button>
-    </div>
+    </nav>
 
     <!-- Profile Section -->
     <div class="container">
         <h2>Welcome to My Profile</h2>
         <div class="profile-pic">
-            <img src="https://envs.sh/d8J.jpg" alt="Profile Picture">
+            <img src="profile.jpg" alt="Profile Picture">
         </div>
         <h1>Aman Vishwakarma</h1>
         <p>🚀 Developer | AV Botz Owner | Python & AI Enthusiast</p>
@@ -33,23 +33,25 @@
     <script>
         // Hamburger Menu Toggle
         function toggleMenu() {
-            var menu = document.getElementById("menu");
-            menu.classList.toggle("show");
+            document.getElementById("menu").classList.toggle("show");
         }
 
-        // Dark/Light Mode Toggle
+        // Dark/Light Mode Toggle with localStorage
         function toggleMode() {
-            var body = document.body;
+            let body = document.body;
             body.classList.toggle("light-mode");
-
-            var modeButton = document.querySelector(".mode-toggle");
-            if (body.classList.contains("light-mode")) {
-                modeButton.innerText = "☀";
-            } else {
-                modeButton.innerText = "🌙";
-            }
+            localStorage.setItem("theme", body.classList.contains("light-mode") ? "light" : "dark");
+            document.querySelector(".mode-toggle").innerText = body.classList.contains("light-mode") ? "☀" : "🌙";
         }
+
+        // Load Theme from localStorage
+        window.onload = function () {
+            if (localStorage.getItem("theme") === "light") {
+                document.body.classList.add("light-mode");
+                document.querySelector(".mode-toggle").innerText = "☀";
+            }
+        };
     </script>
 
 </body>
-</html>
+    </html>
