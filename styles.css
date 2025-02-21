@@ -54,6 +54,18 @@ body {
     z-index: 100;
 }
 
+/* Show Menu */
+.menu-links.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hide Menu Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .menu-links a {
     display: block;
     padding: 20px;
@@ -66,10 +78,6 @@ body {
 .menu-links a:hover {
     background: #00c6ff;
     color: black;
-}
-
-.menu-links.show {
-    display: block;
 }
 
 /* Mode Toggle Button */
@@ -142,4 +150,4 @@ h2 {
         padding: 10px 25px;
         font-size: 16px;
     }
-}
+        }
