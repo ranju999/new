@@ -4,119 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aman Vishwakarma - Profile</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            background: linear-gradient(to right, #141E30, #243B55);
-            color: white;
-            margin: 0;
-        }
-
-        /* Navigation Bar */
-        .nav {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .menu-icon {
-            cursor: pointer;
-            font-size: 24px;
-            padding: 5px 10px;
-            transition: 0.3s;
-        }
-
-        .menu-icon:hover {
-            color: #00c6ff;
-        }
-
-        .menu-links {
-            display: none;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.9);
-            top: 60px;
-            right: 10px;
-            width: 200px;
-            border-radius: 5px;
-            text-align: left;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-
-        .menu-links a {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            transition: 0.3s;
-        }
-
-        .menu-links a:hover {
-            background: #00c6ff;
-            border-radius: 3px;
-        }
-
-        .menu-links.show {
-            display: block;
-        }
-
-        /* Profile Section */
-        .container {
-            margin-top: 50px;
-            padding: 20px;
-        }
-
-        .profile-pic img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 4px solid #00c6ff;
-            box-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
-        }
-
-        h1 {
-            margin: 15px 0;
-            font-size: 28px;
-            color: #00c6ff;
-        }
-
-        p {
-            font-size: 18px;
-            opacity: 0.8;
-        }
-
-        /* Contact Button */
-        .contact-btn {
-            background: #00c6ff;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 198, 255, 0.3);
-        }
-
-        .contact-btn:hover {
-            background: #009acd;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 198, 255, 0.5);
-        }
-
-    </style>
+    <link rel="stylesheet" href="https://ranju999.github.io/new/styles.css">
 </head>
-<body>
+<body class="dark-mode">
 
-    <!-- Navigation Menu -->
+    <!-- Navigation Bar -->
     <div class="nav">
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <div class="menu-links" id="menu">
@@ -124,10 +16,12 @@
             <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
             <a href="https://linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
         </div>
+        <button class="mode-toggle" onclick="toggleMode()">🌙</button>
     </div>
 
     <!-- Profile Section -->
     <div class="container">
+        <h2>Welcome to My Profile</h2>
         <div class="profile-pic">
             <img src="https://envs.sh/d8J.jpg" alt="Profile Picture">
         </div>
@@ -136,14 +30,26 @@
         <button class="contact-btn">Contact Me</button>
     </div>
 
-    <!-- JavaScript -->
     <script>
+        // Hamburger Menu Toggle
         function toggleMenu() {
             var menu = document.getElementById("menu");
             menu.classList.toggle("show");
         }
+
+        // Dark/Light Mode Toggle
+        function toggleMode() {
+            var body = document.body;
+            body.classList.toggle("light-mode");
+
+            var modeButton = document.querySelector(".mode-toggle");
+            if (body.classList.contains("light-mode")) {
+                modeButton.innerText = "☀";
+            } else {
+                modeButton.innerText = "🌙";
+            }
+        }
     </script>
 
 </body>
-    </html>
-    
+</html>
