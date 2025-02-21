@@ -12,9 +12,9 @@
     <nav class="nav">
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <div class="menu-links" id="menu">
-            <a href="https://github.com/yourgithub" target="_blank">GitHub</a>
-            <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
-            <a href="https://linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
+            <a href="https://github.com/yourgithub" target="_blank" onclick="closeMenu()">GitHub</a>
+            <a href="https://t.me/yourtelegram" target="_blank" onclick="closeMenu()">Telegram</a>
+            <a href="https://linkedin.com/in/yourlinkedin" target="_blank" onclick="closeMenu()">LinkedIn</a>
         </div>
         <button class="mode-toggle" onclick="toggleMode()">🌙</button>
     </nav>
@@ -33,7 +33,13 @@
     <script>
         // Hamburger Menu Toggle
         function toggleMenu() {
-            document.getElementById("menu").classList.toggle("show");
+            var menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+
+        // Close Menu when a link is clicked
+        function closeMenu() {
+            document.getElementById("menu").classList.remove("show");
         }
 
         // Dark/Light Mode Toggle with localStorage
@@ -51,7 +57,17 @@
                 document.querySelector(".mode-toggle").innerText = "☀";
             }
         };
+
+        // Close menu if clicked outside
+        document.addEventListener("click", function (event) {
+            var menu = document.getElementById("menu");
+            var menuIcon = document.querySelector(".menu-icon");
+
+            if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                menu.classList.remove("show");
+            }
+        });
     </script>
 
 </body>
-    </html>
+        </html>
